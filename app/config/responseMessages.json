@@ -1,0 +1,8 @@
+{
+	"APP_MESSAGES" : {
+		"SUCCESS" 				: {"errorCode" : "0", "message" : "Success"},
+		"ERROR_VALIDATION" 		: {"errorCode" : "101", "message" : "Validation Error"},
+		"ERROR_NO_DATA" 		: {"errorCode" : "102", "message" : "No Data Available"}
+
+	}
+}

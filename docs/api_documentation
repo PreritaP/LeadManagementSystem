@@ -1,0 +1,81 @@
+1. Lead Create
+Method: POST
+API: http://localhost:8090/LMS/api/v1/lead/createLead
+Payload: {
+            "mobileNumber"  : 9111111111,
+            "customerName"  : "Prerita Prajapati",
+            "address"       : "south delhi",
+            "pinCode"       : "110065",
+            "city"          : "New Delhi"
+        }
+Use to create leads. Insert the lead details in the lms_lead_detail table with the mapping of rank based on cityId
+
+2. User Create
+Method: POST
+API: http://localhost:8090/LMS/api/v1/user/createUser
+Payload: {
+            "userName"          : "Agent 4",
+            "employeeCode" 	    : "LMS04",
+            "userRole"          : 2,
+            "userDayBucket"     : 3,
+            "userTotalBucket"   : 1000
+        }
+Use to create agents. Insert the agent details in the lms_user_detail table.
+
+3. Group Create
+Method: POST
+API: http://localhost:8090/LMS/api/v1/group/createGroup
+Payload: {
+            "groupRank" : 2,
+            "groupType" : 1
+        }
+Use to create groups based on ranks
+
+4. Agent and Group mapping
+Method: POST
+API: http://localhost:8090/LMS/api/v1/user/mapUserGroup
+Payload: {
+            "rank"      : 1,
+            "groupId"   : 1,
+            "userId"    : 2
+        }
+Use to map the agent and groups (To be used in lead allocation)
+
+5. Lead Allocation
+Methos: GET
+API: http://localhost:8090/LMS/api/v1/lead/allocateLead
+Map the leads to agents based on the groups (city)
+
+6. Get Allocation mapping
+Method: GET
+API: http://localhost:8090/LMS/api/v1/lead/getLeadAllocation
+Used to display the lead and agents mapping
+
+7. Close lead
+Method: POST
+API: http://localhost:8090/LMS/api/v1/lead/disposeLead
+Payload: {
+            "leadId"        : 1,
+            "dispositionId" : 1
+        }
+used to close a particular lead and dispositionId is the reason id why the lead is being closed
+
+
+APIS to View data in the database
+1. Get the auto allocation group list
+Method: GET
+API: http://localhost:8090/LMS/api/v1/group/getAutoAllocationGroups
+
+2. Get active user group list
+Method: POST
+API: http://localhost:8090/LMS/api/v1/user/getActiveUserIngroup
+Payload: {
+            "groupId":1
+        }
+
+3. Get users by role id
+Method: POST
+API: http://localhost:8090/LMS/api/v1/user/getUserByRoleId
+Payload: {
+            "roleId":1
+        }

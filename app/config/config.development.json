@@ -1,0 +1,30 @@
+{
+	"server": {
+		"index": {
+			"port" : 8090
+		}
+	},
+	"logging": {
+        "label"       : "LMS",
+        "consoleLevel": "debug",
+        "fileLevel"   : "debug"
+    },
+    "database": {
+       "mysqlMaster": {
+           "host": "localhost",
+           "port": "3306",
+           "user": "root",
+           "password": "",
+           "database": "lms",
+           "connectionLimit": 10
+       },
+       "mysqlReadSlave": {
+           "host": "localhost",
+           "port": "3306",
+           "user": "root",
+           "password": "",
+           "database": "lms",
+           "connectionLimit": 10
+       }
+   }
+}
